@@ -1,0 +1,82 @@
+h1,p,h2 {
+    text-align: center;
+}
+.lifePets+.lifePets>ol>li:first-child,.lifePets+.lifePets>ol>li:first-child + li{
+  color: green;
+}
+.wrapper {
+    width:1100px; 
+    border: 10px solid red;
+    margin-left: 7%;
+}
+.mainBlock p {
+    border: 5px solid green; 
+    margin: 0 20px 20px 20px; 
+    padding: 10px 20px 15px 20px;
+}
+.damageProperty {
+    border:5px solid  purple; 
+    margin: 20px 20px 0 20px; 
+    padding: 0 15px 0 15px;
+}
+.timeForPet {
+    border:5px solid  purple; 
+    margin: 20px 20px 0 20px; 
+    padding: 0 15px 0 15px;
+}
+.lifePets {
+    border:5px solid  purple; 
+    margin: 20px 20px 20px 20px; 
+    padding: 0 15px 0 15px;
+}
+
+/*////////////////////////////About Cat//////////////*/
+
+#badCat {
+    text-align: center;
+}
+.catItem p {
+    margin: 0 20px 20px 0;
+    font-size: 24px;
+}
+.productCard {
+    border: 2px solid black;
+    width: 600px;
+    margin-left: 40px;
+    display:inline-block;
+    
+}
+.productCard h2,img {
+   margin-left: 40px;
+}
+.productCard ul,p {
+    font-size: 20px;
+}
+.secondProd {
+    border: 2px solid black;
+    width: 500px;
+    margin-right: 0;
+    float: right;
+    display:inline-block;
+}
+.catShop {
+    white-space:nowrap;
+}
+.secondProd h2 {
+    font-size: 16px;
+}
+.secondProd ul,p {
+    font-size: 20px;
+}
+.secondProd h2 {
+    font-size: 20px;
+}
+.catHostel h2 {
+    margin: 100px 0 30px 0;
+    font-size: 36px;
+    color:purple;
+}
+.catHostel li{
+    font-size: 20px;
+    margin-top: 15px;
+}
