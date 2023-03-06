@@ -3,7 +3,7 @@
     if($("#type_text").length){
         let text1 = new TypeIt("#type_text", {
             speed: 70,
-            strings: ["Hello, welcome here. The site is still under development :)"],
+            strings: ["Hello. This is a site for easier news reading. Good read)"],
         }).go();
     }
     
