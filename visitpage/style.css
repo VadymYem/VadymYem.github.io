@@ -125,10 +125,10 @@ html body {
 }
 
 #snow {
-  height: 30vh;
+  height: 100vh;
   position: absolute;
-  width: 30vw;
-  z-index: -1;
+  width: 100vw;
+  z-index: -5;
 }
 
 #background_in_card_box {
