@@ -125,9 +125,9 @@ html body {
 }
 
 #snow {
-  height: 100vh;
+  height: 30vh;
   position: absolute;
-  width: 100vw;
+  width: 30vw;
   z-index: -1;
 }
 
