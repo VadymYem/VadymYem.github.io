@@ -29,11 +29,14 @@ html body {
 .photo {
   width: 50%;
   float: left;
+  /* Add the following styles to make the photo round */
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .photo img {
-  max-width: 50%;
-  border-radius: 5px;
+  /* Remove max-width to allow it to fill the round container */
+  /* Border-radius is not needed anymore */
   margin-bottom: 20px;
 }
 
