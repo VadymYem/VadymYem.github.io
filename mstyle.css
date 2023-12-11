@@ -1,107 +1,67 @@
 html body {
-  font-family: sans-serif;
-  background-color: #ffffff;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
+  --body-bg: #000;
+  background: #000;
+  padding: 20px;
   margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.header {
-  background-color: #333333;
-  height: 70px;
-  padding: 20px;
+.card {
+  height: 350px;
+  width: 240px;
+  background: #f7f7f7;
+  padding: 35px;
+  color: var(--text-color);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  border: 0.5px solid #564DBB;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
 
-.header h1 {
-  font-size: 30px;
-  color: #ffffff;
+.position_avatar {
+  top: -10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 190px;
+  height: 190px;
 }
 
-.main {
-  width: 100%;
-  min-height: 500px;
-  padding: 20px;
+.avatar {
+  width: 190px;
+  height: 190px;
+  border-radius: calc(100% / 2);
+  border: 1px solid #a166ab;
 }
 
-.photo {
-  width: 50%;
-  float: left;
-  /* Add the following styles to make the photo round */
-  border-radius: 50%;
-  overflow: hidden;
+h1 {
+  position: relative;
+  top: -35px;
+  text-align: center;
+  font-family: 'PT Mono', monospace;
+  font-size: 32px;
+  color: #333333;
 }
 
-.photo img {
-  /* Remove max-width to allow it to fill the round container */
-  /* Border-radius is not needed anymore */
-  margin-bottom: 20px;
+.social {
+  position: relative;
+  top: -18%;
+  text-align: center;
 }
 
-.audio {
-  width: 50%;
-  float: right;
-}
-
-.audio .controls {
-  margin-top: 20px;
-}
-
-.audio .controls .play {
-  background-color: #333333;
-  color: #ffffff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.audio .controls .pause {
-  background-color: #333333;
-  color: #ffffff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.audio .controls .volume {
-  background-color: #333333;
-  color: #ffffff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.audio .controls .volume:before {
-  content: "%";
+.soundcloud {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.audio .controls .progress {
-  width: 100%;
-  height: 10px;
-  background-color: #333333;
-}
-
-.audio .controls .progress-bar {
-  width: 0%;
-  height: 100%;
-  background-color: #ffffff;
-}
-
-.audio .controls .current-time {
-  font-size: 16px;
-  color: #ffffff;
-}
-
-.audio .controls .total-time {
-  font-size: 16px;
-  color: #ffffff;
-	} 
+  top: 0%;
+  right: 185px;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgb(35, 91, 216);
+  transition: 0.5s top;
+  background-image: url("soundcloud.svg");
+  background-size: 100%;
+  background-color: rgb(35, 91, 
