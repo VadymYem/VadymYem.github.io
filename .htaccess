@@ -1,0 +1,13 @@
+ErrorDocument 400 https://authorche.pp.ua/error.html
+ErrorDocument 401 https://authorche.pp.ua/error.html
+ErrorDocument 403 https://authorche.pp.ua/error.html
+ErrorDocument 404 https://authorche.pp.ua/error.html
+ErrorDocument 503 https://authorche.pp.ua/error.html
+
+RewriteEngine On
+RewriteCond %{ENV:HTTPS} !on
+RewriteRule ^.*$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+Header always set Content-Security-Policy "upgrade-insecure-requests;"
+Redirect 301 /btc https://cryptotabbrowser.com/landing/79/39533562
+Redirect 302 /d https://grabify.link/SMISXF
+ErrorDocument 500 https://authorche.pp.ua/error.html
