@@ -1,0 +1,1 @@
+.checkuser-show,.sysop-show,.editor-show,.autoreview-show,.autoconfirmed-show,.user-show{display:none}
