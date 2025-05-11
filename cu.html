@@ -2,39 +2,208 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="keywords" content="AuthorChe,authorche,author che,Author Che,АвторЧе,Автор Че,авторче,автор че,Автор Черкаси,Вадим Черкаси,Ємельянов Вадим,Vadim Yemelyanov,AuthorChe Website,AuthorChe сайт,Website, Поет, Poet, Музикант, Musician, Програміст, Programmer, вчитель співу, singing teacher, музика Черкаси, music Cherkasy, письменник Черкаси, writer Cherkasy, композитор Черкаси, composer Cherkasy, автор музики, music author, музичний блог, music blog, Вадим Ємельянов, Vadim Yemelyanov, автор віршів, poetry author, поезія, poetry, співак, singer, співи, singing, музичне викладання, music teaching, викладання співу, singing lessons, розробник вебсайтів, web developer, творчість, creativity, Черкаси творчість, creativity Cherkasy, вірші, poems, музика, music, донат, donations, послуги, services, резюме, resume, AuthorChe poems, AuthorChe music, AuthorChe donations, AuthorChe services, AuthorChe resume, АвторЧе вірші, АвторЧе музика, АвторЧе донат, АвторЧе послуги, АвторЧе резюме">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <style>
-        body {
-            background-color: #000;
-            color: #00ff00;
-            font-family: 'Roboto', sans-serif;
+        :root {
+            --primary-color: #8b5cf6;
+            --primary-hover: #7c3aed;
+            --bg-color: #111827;
+            --secondary-bg: #1f2937;
+            --text-color: #e5e7eb;
+            --text-secondary: #9ca3af;
         }
-        h1, h2 {
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--secondary-bg);
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .contact-list {
+            list-style-type: none;
+            background-color: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-list li {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: rgba(139, 92, 246, 0.1);
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .contact-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-list strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            background-color: rgba(139, 92, 246, 0.1);
+        }
+
+        a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .useful-links {
+            margin-top: 2rem;
             text-align: center;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+
+        .button {
+            background: linear-gradient(45deg, var(--primary-color), #ec4899);
+            border: none;
+            padding: 1rem 2rem;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.5);
         }
-        li {
-            margin-bottom: 10px;
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px -1px rgba(139, 92, 246, 0.6);
         }
-        a {
-            color: #00ff00;
-            text-decoration: none;
+
+        footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
         }
-        a:hover {
-            text-decoration: underline;
+
+        /* Анімація для елементів при завантаженні */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-list li {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .contact-list li:nth-child(1) { animation-delay: 0.2s; }
+        .contact-list li:nth-child(2) { animation-delay: 0.4s; }
+        .contact-list li:nth-child(3) { animation-delay: 0.6s; }
+
+        /* Адаптивний дизайн */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .contact-list {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Contact Us</h1>
-        <li><strong>Telegram:</strong> <a href="https://t.me/vyfb_bot">@vyfb_bot</a></li>
-        <li><strong>Email:</strong> <a href="mailto:AuthorChe@proton.me">AuthorChe@proton.me</a></li>
-        <li><strong>XMPP address:</strong> author@conversations.im</li>
-    </ul>
-    <button><a href="https://authorche.pp.ua/links">Other links</a></button>
+    <div id="black-overlay"></div>
+    <div id="external-preloader"></div>
+    <div id="content">
+        <header>
+            <h1>Contact Us</h1>
+        </header>
+        <main>
+            <ul class="contact-list">
+                <li>
+                    <strong>Telegram</strong>
+                    <a href="https://t.me/vyfb_bot">@vyfb_bot</a> or <a href="https://t.me/wsinfo">@wsinfo</a>
+                </li>
+                <li>
+                    <strong>Email</strong>
+                    <a href="mailto:info@authorche.pp.ua">info@authorche.pp.ua</a>
+                </li>
+                <li>
+                    <strong>XMPP address</strong>
+                    <a href="#">author@conversations.im</a>
+                </li>
+            </ul>
+            <div class="useful-links">
+                <a href="https://authorche.pp.ua/links" class="button">Useful links</a>
+                <div class="useful-links">
+                <a href="https://authorche.pp.ua/" class="button">Homepage</a>
+            </div>
+        </main>
+        <footer>
+            &copy; 2024 AuthorChe
+        </footer>
+    </div>
+    <!-- Google Analytics Script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LN7QL6SP2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6LN7QL6SP2');
+    </script>
 </body>
 </html>

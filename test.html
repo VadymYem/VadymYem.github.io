@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестування</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --result-bg: #e3fcef;
+            --result-border: #28a745;
+            --btn-bg: #007BFF;
+            --btn-hover-bg: #0056b3;
+        }
+        [data-theme="dark"] {
+            --bg-color: #181818;
+            --text-color: #f4f4f9;
+            --card-bg: #333333;
+            --result-bg: #242424;
+            --result-border: #444444;
+            --btn-bg: #505050;
+            --btn-hover-bg: #666666;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .question h3 {
+            margin-bottom: 10px;
+        }
+
+        .question input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1em;
+            background: var(--btn-bg);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 1.4em;
+            font-weight: bold;
+            background: var(--result-bg);
+            border: 2px solid var(--result-border);
+            border-radius: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        .theme-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 0.8em;
+            background: var(--btn-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .theme-btn:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        .theme-btn i {
+            font-size: 1.2em;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-btn" id="themeButton" onclick="toggleTheme()">
+        <i>🌙</i>
+    </button>
+
+    <h1>Тест</h1>
+    <form id="quizForm">
+        <div class="question">
+            <h3>1. Хто найгарніша дівчинка у всесвіті?</h3>
+            <label><input type="radio" name="q1" value="0"> Анджеліна Джолі</label><br>
+            <label><input type="radio" name="q1" value="1"> Я</label><br>
+            <label><input type="radio" name="q1" value="0"> Єва Елфі</label><br>
+            <label><input type="radio" name="q1" value="0"> Інстасамка</label>
+        </div>
+        <div class="question">
+            <h3>2. Ти впевнена у відповіді?</h3>
+            <label><input type="radio" name="q2" value="1"> Так</label><br>
+            <label><input type="radio" name="q2" value="0"> Ні</label><br>
+            <label><input type="radio" name="q2" value="0"> Не знаю</label>
+        </div>
+        <div class="question">
+            <h3>3. Я Автор і я люблю свою Карооку понад все. Правда чи міф?</h3>
+            <label><input type="radio" name="q3" value="0"> Міф</label><br>
+            <label><input type="radio" name="q3" value="0"> Не знаю</label><br>
+            <label><input type="radio" name="q3" value="1"> Правда</label>
+        </div>
+        <!-- Додати інші питання тут -->
+        <button type="button" class="submit-btn" id="submitButton" onclick="calculateScore()">Перевірити результати</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateScore() {
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+            let correctAnswers = 0;
+
+            // Правильні відповіді
+            const answers = {
+                q1: "1", // Питання 1: Відповідь 1492
+                q2: "1", // Питання 2: Відповідь Париж
+                q3: "1",
+// Додати відповіді для інших питань
+            };
+
+            // Підрахунок правильних відповідей
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                if (formData.get(question) === correctAnswer) {
+                    correctAnswers++;
+                }
+            }
+
+            // Підрахунок балів (12-бальна система)
+            const totalQuestions = Object.keys(answers).length;
+            const score = Math.round((correctAnswers / totalQuestions) * 12);
+
+            // Приховуємо питання і кнопки
+            const questions = document.querySelectorAll('.question');
+            const submitButton = document.getElementById('submitButton');
+            const themeButton = document.getElementById('themeButton');
+            questions.forEach((question) => question.classList.add('fade-out'));
+            submitButton.classList.add('hidden');
+            themeButton.classList.add('hidden');
+
+            // Виведення результату
+            const resultDiv = document.getElementById('result');
+            let evaluation = "";
+            if (score >= 0 && score <= 3) evaluation = "Не зараховано";
+            else if (score >= 4 && score <= 6) evaluation = "Зараховано";
+            else if (score >= 7 && score <= 9) evaluation = "Добре";
+            else if (score >= 10 && score <= 12) evaluation = "Дуже добре";
+
+            resultDiv.innerHTML = `
+                Ваш результат: ${score} з 12<br>
+                По темі: Пошук істини<br><br>
+                <strong>${evaluation}</strong><br>
+                <button class="submit-btn" onclick="goToHomepage()">На основний сайт</button>
+            `;
+            resultDiv.style.display = 'block';
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            body.dataset.theme = body.dataset.theme === "dark" ? "" : "dark";
+        }
+
+        function goToHomepage() {
+            window.location.href = "https://authorche.pp.ua";
+        }
+    </script>
+</body>
+</html>

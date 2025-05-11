@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<!-- Google Analytics Script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LN7QL6SP2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6LN7QL6SP2');
+    </script>
+    <meta charset="UTF-8">
+    	<meta name="keywords" content="AuthorChe,authorche,author che,Author Che,АвторЧе,Автор Че,авторче,автор че,Автор Черкаси,Вадим Черкаси,Ємельянов Вадим,Vadim Yemelyanov,AuthorChe Website,AuthorChe сайт,Website, Поет, Poet, Музикант, Musician, Програміст, Programmer, вчитель співу, singing teacher, музика Черкаси, music Cherkasy, письменник Черкаси, writer Cherkasy, композитор Черкаси, composer Cherkasy, автор музики, music author, музичний блог, music blog, Вадим Ємельянов, Vadim Yemelyanov, автор віршів, poetry author, поезія, poetry, співак, singer, співи, singing, музичне викладання, music teaching, викладання співу, singing lessons, розробник вебсайтів, web developer, творчість, creativity, Черкаси творчість, creativity Cherkasy, вірші, poems, музика, music, донат, donations, послуги, services, резюме, resume, AuthorChe poems, AuthorChe music, AuthorChe donations, AuthorChe services, AuthorChe resume, АвторЧе вірші, АвторЧе музика, АвторЧе донат, АвторЧе послуги, АвторЧе резюме">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>З Днем Народження мене!</title>
+    <style>
+        :root {
+            --primary-color: #ff69b4;
+            --primary-hover: #ff1493;
+            --bg-color: #111827;
+            --secondary-bg: #1f2937;
+            --card-bg: rgba(31, 41, 55, 0.8);
+            --text-color: #e5e7eb;
+            --text-secondary: #9ca3af;
+            --accent-color: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            background: linear-gradient(-45deg, #ff69b4, #4158D0, #ffd700, #ff1493);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: var(--text-color);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                        0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow-y: auto;
+            max-height: 90vh;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--bg-color);
+        }
+
+        .container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .container::-webkit-scrollbar-track {
+            background: var(--bg-color);
+            border-radius: 4px;
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .celebration {
+            text-align: center;
+            margin-bottom: 2rem;
+            top: 0;
+            z-index: 10;
+            background: inherit;
+            padding: 1rem;
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-1000px) rotate(720deg); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            animation: confetti 5s ease-in-out infinite;
+        }
+
+        .confetti:nth-child(2n) {
+            background-color: var(--primary-color);
+            animation-delay: 0.5s;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: sparkle 2s infinite;
+        }
+
+        .donation-section {
+            background-color: rgba(255, 215, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 2px solid var(--accent-color);
+            margin-bottom: 2rem;
+            transform: scale(1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .donation-section:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .donation-section h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .card-info {
+            background-color: rgba(31, 41, 55, 0.5);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-info:hover {
+            background-color: rgba(31, 41, 55, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-info::after {
+            content: '🔄';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-info:hover::after {
+            opacity: 0.7;
+        }
+
+        .card-info strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .crypto-section {
+            background-color: rgba(247, 147, 26, 0.1);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .crypto-header {
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .crypto-header:hover {
+            background-color: rgba(247, 147, 26, 0.15);
+            border-radius: 0.5rem;
+        }
+
+        .crypto-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .crypto-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .crypto-content.active {
+            max-height: 1000px;
+            transition: max-height 0.8s ease-in;
+        }
+
+        .crypto-item {
+            padding: 1rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .crypto-item:hover {
+            background-color: rgba(247, 147, 26, 0.15);
+        }
+
+        .crypto-item strong {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        code {
+            display: block;
+            background-color: rgba(255, 215, 0, 0.1);
+            padding: 0.8rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: var(--text-color);
+            word-break: break-all;
+            margin-top: 0.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        code:hover {
+            background-color: rgba(255, 215, 0, 0.2);
+        }
+
+        .copied-toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .copied-toast.show {
+            opacity: 1;
+        }
+
+        .contact-section {
+            background-color: rgba(255, 105, 180, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 2px solid var(--primary-color);
+            margin-top: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-section:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.2);
+        }
+
+        .contact-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-button {
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .contact-button:hover::before {
+            left: 100%;
+        }
+
+        .birthday-emoji {
+            font-size: 4rem;
+            margin: 1rem 0;
+            display: inline-block;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .birthday-text {
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .birthday-emoji {
+                font-size: 3rem;
+            }
+
+            .birthday-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* Додаємо анімацію для іконок криптовалют */
+        .crypto-icon {
+            display: inline-block;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Додаємо ефект світіння для копійованих елементів */
+        .copy-glow {
+            animation: glow 0.5s ease-in-out;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px var(--accent-color); }
+            50% { box-shadow: 0 0 20px var(--accent-color); }
+            100% { box-shadow: 0 0 5px var(--accent-color); }
+        }
+
+        /* Додаємо анімацію для кнопки розгортання криптовалют */
+        .crypto-header:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="celebration">
+            <div class="birthday-emoji">🎂</div>
+            <h1>26.12 мій День Народження! 🎉</h1>
+        </div>
+        
+        <p class="birthday-text">
+            Вітаю всіх у цей особливий день! 🌟<br>
+            Найкращий подарунок - ваша підтримка!
+        </p>
+
+        <div class="donation-section">
+            <h2>🎁 Найкращий спосіб привітати</h2>
+            <div class="card-info">
+                <strong>ABank / MonoBank</strong>
+                <code>5169 1551 1175 8361</code>
+            </div>
+            <div class="card-info">
+                <strong>PrivatBank</strong>
+                <code>5168 7451 5064 0644</code>
+            </div>
+
+            <div class="crypto-section">
+                <div class="crypto-header" onclick="toggleCrypto()">
+                    <h3><span class="crypto-icon">🌐</span> Криптовалюта</h3>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="crypto-content" id="cryptoContent">
+                    <div class="crypto-item">
+                        <strong><span class="crypto-icon">₿</span> Bitcoin</strong>
+                        <code>123MgBkkpu6XwrU53SvrBxiW9useRSt6qR</code>
+                    </div>
+                    <div class="crypto-item">
+                        <strong><span class="crypto-icon">💎</span> Ton</strong>
+                        <code>UQDicYt03peG8l0CBCKW2YQJ914YoKkzObWFbbIIdUlqnpNJ</code>
+                    </div>
+                    <div class="crypto-item">
+                        <strong><span class="crypto-icon">☘</span> Tether (USDT TON)</strong>
+                        <code>UQBqKU8fvbZVZJvyAw85wQP88O0sTzFkBxW1lfbht9hGayBK</code>
+                    </div>
+                    <div class="crypto-item">
+                        <strong><span class="crypto-icon">☘</span> Tether (USDT TRC20)</strong>
+                        <code>TDELnVo5UMpxudrzSTQZoGkegEGxSDbagD</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>💌 Інші способи привітати</h2>
+            <div class="contact-links">
+                <a class="contact-button" href="https://t.me/wsinfo" target="_blank">
+                    Telegram
+                </a>
+                <a class="contact-button" href="https://instagram.com/Vadym_Yem" target="_blank">
+                    Instagram
+                </a>
+                <a class="contact-button" href="mailto:AuthorChe@duck.com">
+                    Email
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="copied-toast" id="copiedToast">Скопійовано!</div>
+
+    <script>
+        // Копіювання тексту
+        const cardInfoElements = document.querySelectorAll(".card-info code");
+        const copiedToast = document.getElementById("copiedToast");
+
+        cardInfoElements.forEach((element) => {
+            element.addEventListener("click", () => {
+                navigator.clipboard.writeText(element.textContent).then(() => {
+                    copiedToast.classList.add("show");
+                    setTimeout(() => copiedToast.classList.remove("show"), 2000);
+                });
+            });
+        });
+
+        // Перемикання розділу криптовалют
+        const cryptoContent = document.getElementById("cryptoContent");
+        const toggleIcon = document.querySelector(".crypto-header .toggle-icon");
+
+        function toggleCrypto() {
+            cryptoContent.classList.toggle("active");
+            toggleIcon.style.transform = cryptoContent.classList.contains("active")
+                ? "rotate(180deg)"
+                : "rotate(0deg)";
+        }
+    </script>
+</body>
+</html>

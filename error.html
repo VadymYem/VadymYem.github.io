@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LN7QL6SP2"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-6LN7QL6SP2'); </script>
 	<title>Oops! Something went wrong.</title>
 	<style>
 		body {
@@ -47,6 +48,43 @@
 		}
 	</style>
 </head>
+<!-- Чорне накриття -->
+<div id="black-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: black; z-index: 9999;"></div>
+
+<!-- Прелоадер -->
+<div id="external-preloader"></div>
+
+<!-- Основний контент сторінки -->
+<div id="content" style="display: none; visibility: hidden;"></div>
+
+<script>
+    const preloaderContainer = document.getElementById('external-preloader');
+    const blackOverlay = document.getElementById('black-overlay');
+
+    // iFrame для зовнішнього прелоадера
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://authorche.pp.ua/preloader';
+    iframe.style.width = '100%';
+    iframe.style.height = '100vh';
+    iframe.style.border = 'none';
+    iframe.style.position = 'fixed';
+    iframe.style.top = '0';
+    iframe.style.left = '0';
+    iframe.style.zIndex = '10000';
+    preloaderContainer.appendChild(iframe);
+
+    // Рандомна затримка від 5 до 10 секунд
+    const delay = Math.floor(Math.random() * 1) + 11;
+
+    // Таймер для зняття чорного накриття, прелоадера і показу контенту
+    setTimeout(() => {
+        iframe.style.display = 'none'; // Приховуємо прелоадер
+        blackOverlay.style.display = 'none'; // Прибираємо чорне накриття
+        const content = document.getElementById("content");
+        content.style.display = "block"; // Відображаємо контент
+        content.style.visibility = "visible"; // Робимо його видимим
+    }, delay * 1000);
+</script>
 <body>
 	<div class="container">
 		<h1>404</h1>

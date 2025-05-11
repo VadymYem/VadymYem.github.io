@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta data-react-helmet="true" property="og:type" content="website"><meta data-react-helmet="true" property="og:title" content="AuthorChe - AuthorBot Userbot • Юзербот"><meta data-react-helmet="true" property="og:description" content="AuthorChe · Poems from the heart "><meta data-react-helmet="true" property="og:url" content="https://authorche.pp.ua"><meta data-react-helmet="true" property="og:image" content="images/RiqWXFyRTBmjM8ht4DaFC3.jpg"><meta data-react-helmet="true" property="og:image:alt" content="AuthorChe"><meta data-react-helmet="true" property="og:site_name" content="AuthorBot Userbot • Юзербот"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="twitter:site" content="@UnfoldHQ"><meta data-react-helmet="true" name="twitter:title" content="AuthorChe • Official WebSite"><meta data-react-helmet="true" name="twitter:description" content="AuthorChe · Poems from the heart"><meta data-react-helmet="true" name="twitter:image" content="https://media.bio.site/sites/8991dd40-4226-4d5c-80bd-ecc1708bb70b/RiqWXFyRTBmjM8ht4DaFC3.jpg"><meta data-react-helmet="true" name="twitter:image:alt" content="AuthorChe - AuthorBot Userbot • Юзербот"><link data-react-helmet="true" rel="icon" href="favicon.ico">
+    <title>AuthorBot - Сучасний Юзербот</title>
+    <meta name="description" content="Український Telegram юзербот із підтримкою останніх оновлень. Унікальні функції, швидкість роботи, ідеальний помічник у Telegram. Завантажте зараз!">
+    <meta name="keywords" content="Telegram юзербот, український бот Telegram, найкращий Telegram бот, унікальні функції бота, юзербот Україна, юзербот безкоштовно, free userbot telegram, telegram userbot, AuthorBot, AuthorChe, АвторЧе, Автор Че, author che">
+    <meta name="author" content="AuthorChe">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Найкращий Telegram юзербот",
+        "description": "Український Telegram юзербот із підтримкою останніх оновлень та унікальними функціями.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Telegram",
+        "softwareVersion": "1.0",
+        "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+        },
+        "url": "https://authorche.pp.ua/ubot.html",
+        "image": "https://authorche.pp.ua/poems/logo.html",
+        "author": {
+            "@type": "Person",
+            "name": "AuthorChe"
+        }
+    }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --primary-color: #4CAF50;
+            --secondary-color: #2196F3;
+            --card-bg: #f5f5f5;
+            --button-bg: #eaeaea;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --primary-color: #66bb6a;
+            --secondary-color: #42a5f5;
+            --card-bg: #2d2d2d;
+            --button-bg: #3d3d3d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 5s linear infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--button-bg);
+            border: none;
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .theme-switch:hover {
+            transform: scale(1.1);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .install-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            opacity: 0;
+        }
+
+        .code-container {
+            position: relative;
+            margin: 1rem 0;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: monospace;
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--button-bg);
+            border: none;
+            color: var(--text-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .donate-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donate-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .donate-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .donate-button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .social-buttons {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .donate-button:hover::after {
+            transform: translateX(100%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .success-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .success-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <button class="theme-switch" onclick="toggleTheme()">🌓</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>AuthorBot</h1>
+            <p>✍️ AuthorBot — це сучасний юзербот для Telegram, який працює від імені звичайного користувача, надаючи розширені можливості, недоступні для класичних ботів. Наш юзербот підтримує встановлення на різні платформи: Android через Termux, Windows через WSL, та Linux VDS/VPS сервери.</p><br>
+            <p>⁉️ Юзербот — це бот, який працює від імені звичайного користувача Telegram, надаючи розширені можливості, недоступні для звичайних користувачів. Наприклад, юзербот може завантажити відео з тіктоку, бути ботом-модератором в чаті, знайти улюблену пісню, шукати інфо в гугл та виконувати інші дії в улюбленому месенджері без необхідності виходити або запускати якихось інших ботів чи програми. По ідеї працює як і звичайний бот, але від імені користувача.</p>
+        </div>           
+        <div class="features">
+            <div class="feature-item">
+            	<h3>💻 Переваги AuthorBot:</h3><br>
+                <h3>🆕 Останні оновлення Telegram</h3>
+                <p>Підтримка реакцій, відео-наклейок, цитат та інших нових функцій</p>
+            </div>
+            <div class="feature-item">
+                <h3>🔓 Поліпшена безпека</h3>
+                <p>Вбудоване кешування сутностей та цільові правила безпеки</p>
+            </div>
+            <div class="feature-item">
+                <h3>🎨 Покращений інтерфейс</h3>
+                <p>Зручний дизайн та оптимізована взаємодія з користувачем</p>
+            </div>
+            <div class="feature-item">
+                <h3>⚡️ Швидкодія</h3>
+                <p>Стабільна та швидка робота з мінімальними затримками</p>
+            </div>
+            <div class="feature-item">
+                <h3>👨‍👦 NoNick підтримка</h3>
+                <p>Можливість використовувати інший акаунт для роботи юзербота</p>
+            </div>
+            <div class="feature-item">
+                <h3>🇺🇦 Українська мова</h3>
+                <p>Повна підтримка української мови в інтерфейсі</p>
+            </div>
+        </div>
+
+        <div class="install-section">
+            <h2>Встановлення</h2><br><br>
+            
+            <h3><a href="https://f-droid.org/repo/com.termux_118.apk">📱 Termux (Android)</a>:</h3>
+            <p>Встановіть Termux за посиланням вище та виконайте наступну команду:</p>
+            <div class="code-container">
+                <div class="code-block">termux-wake-lock && export AIOHTTP_NO_EXTENSIONS=1 && pkg upgr -y && pkg i wget ncurses-utils python openssl git -y && clear && . <(wget -qO- https://raw.githubusercontent.com/VadymYem/AuthorBot/refs/heads/master/termux.sh)</div>
+                <button class="copy-button" onclick="copyCode(this)">📋</button>
+                <br><p class="note">⚠️ Якщо побачите попередження де треба підтвердження, то виконайте: Y . Це треба для успішного встановлення всих необхідних пакетів.<br>Якщо при виконанні скрипту пише Aborted, то з команди прибираємо `termux-wake-lock &&` і встановлюємо бота</p>
+            </div><br><p>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_</p><br>
+
+            <h3>🪟 Windows (через WSL):</h3>
+            <p>Для встановлення на Windows потрібно виконати наступні кроки:</p>
+            <ol>
+                <li>
+                    <strong>Встановіть WSL:</strong>
+                    
+                    <p>Для цього відкрий PowerShell с правами адміністратора і напиши:</p>
+                    <div class="code-container">
+                        <div class="code-block">wsl --install -d Ubuntu-22.04</div>
+                        <button class="copy-button" onclick="copyCode(this)">📋</button>
+                    </div>
+                    <p class="note">⚠️ Потрібна Windows 10 build 2004 або новіше, з підтримкою віртуалізації. Для старіших версій дивіться <a href="https://learn.microsoft.com/ru-ru/windows/wsl/install-manual">інструкцію</a></p>
+                </li>
+                <li><strong>Перезавантажте ПК та запустіть Ubuntu 22.04</strong></li>
+                <li>
+                    <strong>Встановіть pip:</strong>
+                    <div class="code-container">
+                        <div class="code-block">curl -Ss https://bootstrap.pypa.io/get-pip.py | python3</div>
+                        <button class="copy-button" onclick="copyCode(this)">📋</button>
+                    </div>
+                    <p class="note">⚠️ Якщо побачите жовті попередження, виконайте: <code>export PATH="/home/username/.local/bin:$PATH"</code> (замініть шлях на вказаний у попередженні)</p>
+                </li>
+                <li>
+                    <strong>Встановіть AuthorBot:</strong>
+                    <div class="code-container">
+                        <div class="code-block">clear && git clone https://github.com/VadymYem/AuthorBot && cd AuthorBot && pip install -r requirements.txt && python3 -m hikka</div>
+                        <button class="copy-button" onclick="copyCode(this)">📋</button>
+                    </div>
+                </li>
+            </ol><br><p>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_</p><br>
+
+            <h3><a href="https://freehost.com.ua/ukr/faq/wiki/vps-vds-chto-eto/">🌐 VDS/VPS (Linux)</a>:</h3>
+            <p>Для встановлення на VDS/VPS сервер виконайте команду:</p>
+            <div class="code-container">
+                <div class="code-block">sudo apt update && sudo apt upgrade -y && sudo apt install git python3 -y && git clone https://github.com/VadymYem/AuthorBot && cd AuthorBot && pip install -r requirements.txt && python3 -m hikka --no-web</div>
+                <button class="copy-button" onclick="copyCode(this)">📋</button>
+            </div><br><p>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_</p><br>
+
+            <h3>🔗 Отримання API_ID і API_HASH</h3>
+            <p>Для роботи юзербота потрібні API_ID і API_HASH. Як їх отримати дивіться в <a href="https://youtu.be/DcqDA249Lhg?t=24">цьому відео</a>.</p>
+        </div>
+
+        <div class="social-buttons">
+            <a href="https://authorche.pp.ua/" class="donate-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Веб-сайт
+            </a>
+            <a href="http://www.instagram.com/Vadym_Yem" class="donate-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                Instagram
+            </a>
+            <a href="https://t.me/wsinfo" class="donate-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2L11 13"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+                </svg>
+                Telegram
+            </a>
+            <a href="https://authorche.pp.ua/donate.html" class="donate-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                Підтримати проект
+            </a>
+        </div>
+    </div>
+    </div>
+
+    <div class="success-message" id="copyMessage">Скопійовано!</div>
+
+    <script>
+        function toggleTheme() {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+        }
+
+        function copyCode(button) {
+            const codeBlock = button.previousElementSibling;
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            const message = document.getElementById('copyMessage');
+            message.classList.add('show');
+            setTimeout(() => {
+                message.classList.remove('show');
+            }, 2000);
+        }
+
+        // Particle.js configuration
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#4CAF50" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#4CAF50",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Animations
+        anime({
+            targets: '.header',
+            opacity: [0, 1],
+            translateY: [-50, 0],
+            duration: 1500,
+            easing: 'easeOutExpo'
+        });
+
+        anime({
+            targets: '.card',
+            opacity: [0, 1],
+            translateY: [50, 0],
+            duration: 1000,
+            delay: 500,
+            easing: 'easeOutExpo'
+        });
+
+        anime({
+            targets: '.feature-item',
+            opacity: [0, 1],
+            translateY: [50, 0],
+            duration: 800,
+            delay: anime.stagger(100, {start: 1000}),
+            easing: 'easeOutExpo'
+        });
+
+        anime({
+            targets: '.install-section',
+            opacity: [0, 1],
+            translateX: [-50, 0],
+            duration: 1000,
+            delay: 1500,
+            easing: 'easeOutExpo'
+        });
+
+  // Hover animations for feature items
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                anime({
+                    targets: item,
+                    scale: 1.05,
+                    boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+
+            item.addEventListener('mouseleave', () => {
+                anime({
+                    targets: item,
+                    scale: 1,
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+
+        // Hover animations for buttons
+        document.querySelectorAll('.donate-button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                anime({
+                    targets: button,
+                    translateY: -5,
+                    boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+
+            button.addEventListener('mouseleave', () => {
+                anime({
+                    targets: button,
+                    translateY: 0,
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+
+        // Continuous animation for header gradient
+        anime({
+            targets: '.header h1',
+            backgroundPosition: ['0% 50%', '100% 50%'],
+            duration: 5000,
+            loop: true,
+            direction: 'alternate',
+            easing: 'easeInOutSine'
+        });
+
+        // Update particles color when theme changes
+        function updateParticlesColor() {
+            const isDark = document.body.dataset.theme === 'dark';
+            const color = getComputedStyle(document.body).getPropertyValue('--primary-color');
+            
+            if (window.pJSDom && window.pJSDom[0]) {
+                const particles = window.pJSDom[0].pJS.particles;
+                particles.color.value = color;
+                particles.line_linked.color = color;
+                
+                particles.array.forEach(particle => {
+                    particle.color.value = color;
+                });
+                
+                particles.line_linked.color_rgb_line = particles.color.rgb;
+            }
+        }
+
+        // Add theme change observer
+        const observer = new MutationObserver(() => {
+            updateParticlesColor();
+        });
+
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+        });
+    </script>
+    <!-- Google Analytics Script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LN7QL6SP2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6LN7QL6SP2');
+    </script>
+</body>
+</html>

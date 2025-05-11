@@ -1,69 +1,286 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="donate.css"> 
-    <title>Donate</title>
-    <style>
-        /* Background */
-        body {
-            background-image: url(background-imageg.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | AuthorChe</title>
+<meta name="keywords" content="AuthorChe,authorche,author che,Author Che,АвторЧе,Автор Че,авторче,автор че,Автор Черкаси,Вадим Черкаси,Ємельянов Вадим,Vadim Yemelyanov,AuthorChe Website,AuthorChe сайт,Website, Поет, Poet, Музикант, Musician, Програміст, Programmer, вчитель співу, singing teacher, музика Черкаси, music Cherkasy, письменник Черкаси, writer Cherkasy, композитор Черкаси, composer Cherkasy, автор музики, music author, музичний блог, music blog, Вадим Ємельянов, Vadim Yemelyanov, автор віршів, poetry author, поезія, poetry, співак, singer, співи, singing, музичне викладання, music teaching, викладання співу, singing lessons, розробник вебсайтів, web developer, творчість, creativity, Черкаси творчість, creativity Cherkasy, вірші, poems, музика, music, донат, donations, послуги, services, резюме, resume, AuthorChe poems, AuthorChe music, AuthorChe donations, AuthorChe services, AuthorChe resume, АвторЧе вірші, АвторЧе музика, АвторЧе донат, АвторЧе послуги, АвторЧе резюме">
+<meta name="description" content="Support AuthorChe's creative journey. Your donation helps to fuel new poems, music, and artistic endeavors. Every contribution is appreciated and makes a difference.">
+<meta name="keywords" content="donate, support, contribution, creative support, AuthorChe">
+<meta name="author" content="AuthorChe">
+<meta name="copyright" content="AuthorChe">
+<meta property="og:title" content="Donate | AuthorChe">
+<meta property="og:description" content="Support AuthorChe's creative journey. Your donation helps to fuel new poems, music, and artistic endeavors. Every contribution is appreciated and makes a difference.">
+<meta property="og:image"content="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0OTUyODh8MHwxfHNlYXJjaHwxfHxkb25hdGV8ZW58MHwwfHx8MTcyMjQyODYwM3ww&ixlib=rb-4.0.3&q=80&w=200">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Donate | AuthorChe">
+<meta name="twitter:description" content="Support AuthorChe's creative journey. Your donation helps to fuel new poems, music, and artistic endeavors. Every contribution is appreciated and makes a difference.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0OTUyODh8MHwxfHNlYXJjaHwxfHxkb25hdGV8ZW58MHwwfHx8MTcyMjQyODYwM3ww&ixlib=rb-4.0.3&q=80&w=200"> 
+     <style>
+        :root {
+            --primary-color: #8b5cf6;
+            --primary-hover: #7c3aed;
+            --bg-color: #111827;
+            --secondary-bg: #1f2937;
+            --card-bg: rgba(31, 41, 55, 0.8);
+            --text-color: #e5e7eb;
+            --text-secondary: #9ca3af;
+            --accent-color: #f59e0b;
         }
 
-        /* Preview */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: linear-gradient(to bottom right, rgba(139, 92, 246, 0.1), rgba(245, 158, 11, 0.1));
+            color: var(--text-color);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                        0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
         .preview {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            background-color: #b0b0b0;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
         }
 
         .preview img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        /* Other styles */
+        .preview:hover img {
+            transform: scale(1.1);
+        }
+
         h1 {
             text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        p {
-            margin-bottom: 20px;
+        .donation-text {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
         }
 
-        a {
-            color: #fff;
+        .donation-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .donation-section {
+            background-color: rgba(139, 92, 246, 0.1);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .donation-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .card-info {
+            background-color: rgba(31, 41, 55, 0.5);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .card-info strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+        }
+
+        code {
+            display: block;
+            background-color: rgba(139, 92, 246, 0.2);
+            padding: 0.4rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--text-color);
+            word-break: break-all;
+            cursor: pointer;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        code:hover {
+            background-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .crypto-addresses {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .crypto-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .crypto-item strong {
+            min-width: 80px;
+            color: var(--accent-color);
+        }
+
+        .home-button {
+            display: block;
+            width: fit-content;
+            margin: 1.5rem auto 0;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
             text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.4);
         }
 
-        button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 4px;
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px -1px rgba(139, 92, 246, 0.6);
         }
 
-        button:hover {
-            background-color: #222;
+        .thank-you {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            font-size: 0.9rem;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(245, 158, 11, 0.1));
+            border-radius: 0.5rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .preview {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="preview">
-        <img src="preview-image.jpg" alt="Preview image">
+    <div class="container">
+        <h1>Support My Work</h1>
+        
+        <p class="donation-text">
+            Your support helps fuel my creative journey.<br>
+            Every contribution makes a difference!
+        </p>
+
+        <div class="donation-methods">
+            <div class="donation-section">
+                <h2>🏦 Bank Cards (UA)</h2>
+                <div class="card-grid">
+                    <div class="card-info">
+                        <strong>ABank24</strong>
+                        <code>5169155111758361</code>
+                    </div>
+                    <div class="card-info">
+                        <strong>Privat24</strong>
+                        <code>5168745150640644</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="donation-section">
+                <h2>💎 Crypto</h2>
+                <div class="crypto-addresses">
+                    <div class="crypto-item">
+                        <strong>BTC:</strong>
+                        <code>123MgBkkpu6XwrU53SvrBxiW9useRSt6qR</code>
+                    </div>
+                    <div class="crypto-item">
+                        <strong>TON:</strong>
+                        <code>UQDicYt03peG8l0CBCKW2YQJ914YoKkzObWFbbIIdUlqnpNJ</code>
+                    </div>
+                    <div class="crypto-item">
+                        <strong>USDT(TON):</strong>
+                        <code>UQBqKU8fvbZVZJvyAw85wQP88O0sTzFkBxW1lfbht9hGayBK</code>
+                    </div>
+                    <div class="crypto-item">
+                        <strong>USDT(TRX):</strong>
+                        <code>TXkiayvYBwyuX7r9dj5NvEfdF5FCJbu5kb</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="thank-you">
+            Thank you for believing in my work! 🙏
+        </div>
+
+        <a href="http://authorche.pp.ua" class="home-button">Homepage</a>
     </div>
 
-    <h1>Donate</h1>
-    <p>So you want to donate? Amazing! You can send money to my cards(UA🇺🇦):<br><br>ABank24 - <code>5169155111758361<br></code><br>Privat24 - <code>5168745142553145<br></code><br></p>
-    <p>Or my crypto wallets:<br><br>BTC:<br><code>bc1qmldjc72nym6usckrx4j4d0ynnuv6f0apgve0m4<br></code><br>ETH:<br><code>0xB5Cf698C9d1f57E810AC213353d4F7e2A8974b59<br></code><br>TON:<br><code>EQBvlPuI3MsK7NHZ0euU3_lwwrcLfptk3A0eHdO2OFQq63OY<br></code><br>TRX:<br><code>TM38RYdnxCPfuiqUVma88f4TCZesbeFoLW<br></code><br>BNB:<br><code>0xB5Cf698C9d1f57E810AC213353d4F7e2A8974b59<br></code><br>LTC:<br><code>ltc1qyxqaqapgg4fdyep427s00lszhdxm8x0hcz4e66<br></code></p>
-    <p><strong>It's a trifle for you, but I'm pleased, so I thank you for your support!</strong></p><br><br>
-    <p><button><a href="http://authorche.pp.ua">Homepage</a></button></p>
+    <!-- Google Analytics Script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LN7QL6SP2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6LN7QL6SP2');
+    </script>
 </body>
 </html>
