@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorche Shop</title>
+    <style>
+        :root {
+            --bg-color: #000; /* Pure black for AMOLED */
+            --text-color: #eee;
+            --primary-color: #00aaff; /* Vibrant blue */
+            --secondary-color: #ff00aa; /* Vibrant pink */
+            --card-bg-color: #1a1a1a;
+            --border-color: #333;
+            --animation-duration: 0.3s;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            background-color: var(--card-bg-color);
+            color: var(--primary-color);
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 1rem;
+            margin: 0 auto;
+        }
+
+        /* Product Section */
+        .product-list {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column for mobile */
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .product-card {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform var(--animation-duration) ease-in-out, box-shadow var(--animation-duration) ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+
+        .product-card h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-card .price {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color var(--animation-duration) ease-in-out, transform var(--animation-duration) ease-in-out;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        /* Business Info Section */
+        .business-info {
+            padding: 2rem 1rem;
+            background-color: var(--card-bg-color);
+            border-top: 2px solid var(--border-color);
+            text-align: center;
+        }
+
+        .business-info h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .business-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .business-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform var(--animation-duration) ease-in-out, opacity var(--animation-duration) ease-in-out;
+        }
+
+        .business-images img:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            background-color: var(--card-bg-color);
+            border-top: 2px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        /* Basic Animation - Fade in */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Applying fade-in to sections (can be adjusted) */
+        header, .product-list, .business-info, footer {
+             animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        /* Small JS for dynamic elements if needed (optional for this basic structure) */
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Authorche Shop</h1>
+        <p>Ваш унікальний магазин</p>
+    </header>
+
+    <div class="container">
+        <h2>Наші Товари</h2>
+        <div class="product-list fade-in">
+            <div class="product-card">
+                <img src="https://authorche.pp.ua/poems/logo.jpg" alt="Product Image 1">
+                <h3>Загадковий Артефакт X</h3>
+                <p>Цей предмет прибув з далеких світів, огортаний таємницею та незвіданою енергією. Ідеально підходить для колекціонерів незвичних речей.</p>
+                <div class="price">1200 ₴</div>
+                <a href="#" class="add-to-cart">Додати в кошик</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://authorche.pp.ua/poems/logo.jpg" alt="Product Image 2">
+                <h3>Еліксир Натхнення</h3>
+                <p>Магічний напій, що відкриває нові горизонти творчості та ідей. Випийте краплю і відчуйте потік свіжих думок!</p>
+                <div class="price">550 ₴</div>
+                <a href="#" class="add-to-cart">Додати в кошик</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://authorche.pp.ua/poems/logo.jpg" alt="Product Image 3">
+                <h3>Амулет Успіху</h3>
+                <p>Носіть цей амулет, щоб привабити удачу та позитивні зміни у вашому житті. Ручна робота з особливих матеріалів.</p>
+                <div class="price">890 ₴</div>
+                <a href="#" class="add-to-cart">Додати в кошик</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="business-info fade-in">
+        <h2>Про Authorche Shop</h2>
+        <p>Ми створюємо та знаходимо унікальні речі, які надихають та приносять радість. Кожен товар має свою історію.</p>
+        <div class="business-images">
+            <img src="https://authorche.pp.ua/poems/logo.jpg" alt="Authorche Shop Image 1">
+            <img src="https://authorche.pp.ua/poems/logo.jpg" alt="Authorche Shop Image 2">
+            <img src="https://authorche.pp.ua/poems/logo.jpg" alt="Authorche Shop Image 3">
+        </div>
+    </div>
+
+    <div class="container">
+        </div>
+
+    <footer>
+        &copy; 2023 Authorche Shop. Всі права захищено.
+    </footer>
+
+    <script>
+        // Місце для вашого JavaScript коду, якщо він потрібен
+        // Наприклад, для більш складних анімацій, модальних вікон,
+        // або динамічного завантаження контенту.
+        // Для цієї простої сторінки CSS анімацій достатньо.
+    </script>
+
+</body>
+</html>
