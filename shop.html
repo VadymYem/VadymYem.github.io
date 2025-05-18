@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AuthorChe Shop через iframe із кнопкою Main Website">
+    <title>AuthorChe Shop - Вбудована версія</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #121212; /* Темна тема */
+            color: #ffffff;
+        }
+
+        .frame-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100% - 60px); /* Висота без верхнього блоку */
+            border: none;
+        }
+
+        .main-website-button {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Noto Sans', Arial, sans-serif;
+            font-size: 1.2em;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: background-color 0.2s ease;
+        }
+
+        .main-website-button:hover {
+            background-color: #333333;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<a href="https://authorche.pp.ua" class="main-website-button">Main Website 🌐</a>
+
+<div class="frame-container">
+    <iframe src="https://testminecraft40.wixsite.com/authorche-shop" loading="lazy"></iframe>
+</div>
+
+</body>
+</html>
