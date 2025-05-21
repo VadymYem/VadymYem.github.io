@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Перенаправлення</title>
+<script>
+  const pathSegments = window.location.pathname.split('/').filter(segment => segment !== '');
+  if (pathSegments.length > 0) {
+    const targetUrl = decodeURIComponent(pathSegments[pathSegments.length - 1]);
+    const encodedUrl = targetUrl.replace(/ /g, '%20');
+    window.location.replace(encodedUrl);
+  } else {
+    // Можна додати сюди якусь поведінку за замовчуванням, якщо посилання не передано
+    document.write("Посилання для перенаправлення не знайдено.");
+  }
+</script>
+</head>
+<body>
+  <p>Вас буде перенаправлено...</p>
+</body>
+</html>
