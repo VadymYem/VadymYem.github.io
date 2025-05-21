@@ -3,14 +3,15 @@
 <head>
 <title>Перенаправлення</title>
 <script>
-  const pathSegments = window.location.pathname.split('/').filter(segment => segment !== '');
-  if (pathSegments.length > 0) {
-    const targetUrl = decodeURIComponent(pathSegments[pathSegments.length - 1]);
+  const urlParams = new URLSearchParams(window.location.search);
+  const targetUrlParam = urlParams.get('url');
+
+  if (targetUrlParam) {
+    const targetUrl = decodeURIComponent(targetUrlParam);
     const encodedUrl = targetUrl.replace(/ /g, '%20');
     window.location.replace(encodedUrl);
   } else {
-    // Можна додати сюди якусь поведінку за замовчуванням, якщо посилання не передано
-    document.write("Посилання для перенаправлення не знайдено.");
+    document.write("Параметр 'url' не знайдено.");
   }
 </script>
 </head>
