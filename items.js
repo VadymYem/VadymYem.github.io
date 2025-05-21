@@ -1,20 +1,37 @@
-const items = [
-  {
-    name: "Загадковий Артефакт X",
-    description: "Цей предмет прибув з далеких світів, огортаний таємницею...",
-    price: 1200,
-    image: "https://authorche.pp.ua/poems/logo.jpg "
-  },
-  {
-    name: "Еліксир Натхнення",
-    description: "Магічний напій, що відкриває нові горизонти творчості...",
-    price: 550,
-    image: "https://authorche.pp.ua/poems/logo.jpg "
-  },
-  {
-    name: "Амулет Успіху",
-    description: "Носіть цей амулет, щоб привабити удачу...",
-    price: 890,
-    image: "https://authorche.pp.ua/poems/logo.jpg "
-  }
+// vadymyem.github.io/items.js
+
+const shopItems = [
+    {
+        id: "item1", // Унікальний ідентифікатор товару
+        name: "Загадковий Артефакт X",
+        description: "Цей предмет прибув з далеких світів, огортаний таємницею та незвіданою енергією. Ідеально підходить для колекціонерів незвичних речей.",
+        price: 1200,
+        imageUrl: "https://authorche.pp.ua/poems/logo.jpg",
+        currency: "₴"
+    },
+    {
+        id: "item2",
+        name: "Еліксир Натхнення",
+        description: "Магічний напій, що відкриває нові горизонти творчості та ідей. Випийте краплю і відчуйте потік свіжих думок!",
+        price: 550,
+        imageUrl: "https://authorche.pp.ua/poems/logo.jpg", // Замініть на реальні посилання на зображення
+        currency: "₴"
+    },
+    {
+        id: "item3",
+        name: "Амулет Успіху",
+        description: "Носіть цей амулет, щоб привабити удачу та позитивні зміни у вашому житті. Ручна робота з особливих матеріалів.",
+        price: 890,
+        imageUrl: "https://authorche.pp.ua/poems/logo.jpg", // Замініть на реальні посилання на зображення
+        currency: "₴"
+    },
+    {
+        id: "item4",
+        name: "Кришталева Сфера Прозріння",
+        description: "Дозволяє зазирнути за завісу буденності та побачити приховані істини. Вимагає обережного поводження.",
+        price: 1750,
+        imageUrl: "https://authorche.pp.ua/poems/logo.jpg", // Замініть на реальні посилання на зображення
+        currency: "₴"
+    }
+    // Додавай більше товарів за цим шаблоном
 ];
