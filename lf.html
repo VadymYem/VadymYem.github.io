@@ -7,8 +7,8 @@
   const targetUrlParam = urlParams.get('url');
 
   if (targetUrlParam) {
-    // Просто замінюємо пробіли на %20 без попереднього декодування
-    const encodedUrl = targetUrlParam.replace(/ /g, '%20');
+    // Замінюємо всі пробіли на нижнє підкреслення
+    const encodedUrl = targetUrlParam.replace(/ /g, '_');
     window.location.replace(encodedUrl);
   } else {
     document.write("Параметр 'url' не знайдено.");
